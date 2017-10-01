@@ -44,16 +44,20 @@ void limite(int n)
 			}
 			printf("%f \n",s);
 }
-int nb_premier(int n)
+void nb_premier(int n)
 {
 		int i;
+		int a=0;
 		
-		for(i-2;i<n;i++)
+		for(i=2;i<n;i++)
 		{
-				if(n%i !=0)return 0;
+				if(n%i ==0)a=1;
+				 
+				
 				
 		}
-		return 1;
+				if(!a)printf("%d est premier \n",n);
+				else printf("%d n'est pas premier \n",n);
 }
 int sommeDiv(int n)
 {
@@ -80,7 +84,7 @@ int main()
 	//conversion(5);
 	//multiEgypt(23,87);
 	//limite(1);
-	//nb_premier(5);
-	nbAmi(6);
+	nb_premier(2);
+	//nbAmi(6);
 }	
 
