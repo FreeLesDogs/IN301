@@ -79,12 +79,58 @@ void nbAmi(int n)
 						if((b=sommeDiv(a))>a &&sommeDiv(b)==a);
 		}
 	}
+	void ascii()
+     {
+		 int i;
+		 
+		 for(i = 0; i<255; i++)
+		    {
+				printf("%c \n",i);
+		    }
+     }	
+int factorielle (int n)
+{
+	int f;
+	if (n <= 1)
+	f = 1;
+	else
+	f = n * factorielle(n-1);
+	
+	printf("%d",n);
+	return f;
+}
+void suit_Syr(int T[],int taille)
+    {
+		printf("Entrez un entier \n ");
+		
+		scanf("%d",T);
+		
+		int i;
+		
+		for(i = 0; i<taille-1;i++)
+		   {
+			   if(T[i]%2 == 0)
+			      T[i+1] = T[i]/2;
+			    
+			   else
+			      T[i+1] = (3*T[i])+1;
+			         
+			 }
+			      
+		for(i = 0; i<taille-1;i++)
+		   {
+			   printf("T[%d] = %d \n",i,*(T+i));
+			         
+			 }	     
+		   
+		
+    }
 int main()
 {	//etoiles();
 	//conversion(5);
 	//multiEgypt(23,87);
 	//limite(1);
-	nb_premier(2);
+	//nb_premier(2);
 	//nbAmi(6);
 }	
 
