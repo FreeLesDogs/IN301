@@ -1,5 +1,6 @@
 #include <stdio.h>
-//#include <stlib.h>
+#include <math.h>
+#include <stdlib.h>
 void etoiles(int n)
 {
 	int i,j;
@@ -44,41 +45,91 @@ void limite(int n)
 			}
 			printf("%f \n",s);
 }
-void nb_premier(int n)
-{
-		int i;
-		int a=0;
-		
-		for(i=2;i<n;i++)
-		{
-				if(n%i ==0)a=1;
-				 
-				
-				
-		}
-				if(!a)printf("%d est premier \n",n);
-				else printf("%d n'est pas premier \n",n);
-}
-int sommeDiv(int n)
-{
-	int s=1;int i;
-	for(i=2;i<n;i++)
-		{
-				if(n%i==0) s+=i;
-		}return s;
-}
-void nbAmi(int n)
-	{
-		int a,b;
-		for(a=1;a<=n;a++)
-		{
-				
-				
-						if(sommeDiv(a)==b && sommeDiv(b)==a)
-						printf("%d %d \n",a,sommeDiv(a));
-						if((b=sommeDiv(a))>a &&sommeDiv(b)==a);
-		}
+
+int nbr_prem(int n)
+     {
+		 int i;
+		 
+		 
+		 for(i=2; i <= n-1;i++)
+		    {
+				if(n%i == 0)
+				   {
+				     printf("%d n'est pas premier \n",n);
+				     return 0; 
+				     
+				    }  
+				break;
+		     }	
+		   printf("%d est un nombre premier\n",n); 
+		   
+		   return 1;  	
+		   
+	 }
+	 
+	 int som_div(int a )
+    {
+		int i, j = 0;
+		for(i=1; i <= a-1;i++)
+		      {
+				if(a%i == 0)
+				   {
+				     j += i;
+				    }        
+		       }
+		  return j;     
 	}
+void nbr_amis(int n, int m)
+    {
+		int a,b;
+		
+		a = nbr_prem(n);
+		
+		if(a)
+		  {
+			  printf("la somme des diviseurs de %d est %d\n\n",n,a);  
+		   }
+		else
+		   {
+			  a = som_div(n);
+		 printf("la somme des diviseurs de %d est %d\n\n",n,a);
+		   }
+		 b = nbr_prem(m);
+		
+		if(b)
+		  {
+			  printf("la somme des diviseurs de %d est %d \n\n",m,b);  
+		   }
+		else
+		   {
+			  
+		      b = som_div(m);
+		     printf("la somme des diviseurs de %d est %d \n\n",m,b);   
+		      } 
+		       
+		 if((a == m)&&(b == n)) 
+		    printf("%d et %d sont amis\n\n",n,m);
+		    
+		 else
+		     printf("%d et %d ne sont pas amis\n\n",n,m);             
+	
+	}
+void syra(int n)
+    {
+		while(n>1)
+		   {
+			   if(n%2 == 0)
+			      n = n/2;
+			    
+			   else
+			      {n = (3*n)+1;}
+			      
+			      printf("%d \n",n);
+			         
+			 }   
+		
+    }
+
 	void ascii()
      {
 		 int i;
@@ -90,47 +141,39 @@ void nbAmi(int n)
      }	
 int factorielle (int n)
 {
-	int f;
-	if (n <= 1)
-	f = 1;
-	else
-	f = n * factorielle(n-1);
-	
-	printf("%d",n);
-	return f;
+int f;
+if (n <= 1)
+f = 1;
+else
+f = n * factorielle(n-1);
+printf("%d\n",f);
+return f;
 }
-void suit_Syr(int T[],int taille)
-    {
-		printf("Entrez un entier \n ");
-		
-		scanf("%d",T);
-		
-		int i;
-		
-		for(i = 0; i<taille-1;i++)
-		   {
-			   if(T[i]%2 == 0)
-			      T[i+1] = T[i]/2;
-			    
-			   else
-			      T[i+1] = (3*T[i])+1;
-			         
-			 }
-			      
-		for(i = 0; i<taille-1;i++)
-		   {
-			   printf("T[%d] = %d \n",i,*(T+i));
-			         
-			 }	     
-		   
-		
-    }
+double cal_suit(double n)
+   {
+	   int i =1;
+	   if(n == 1 )
+	   {					
+			printf("%f \n",n);
+			return sqrt(n);
+		}
+	    else
+	    {
+			n = sqrt(i +sqrt(n));
+		    printf("%f\n",n);
+			i++;
+		}
+		return n ;	
+	} 
 int main()
 {	//etoiles();
 	//conversion(5);
 	//multiEgypt(23,87);
 	//limite(1);
-	//nb_premier(2);
-	//nbAmi(6);
+	//nb_premier(23);
+	//nbr_amis(220,284);
+	//syra(7);
+	//factorielle(5);
+	//ascii();
 }	
 
