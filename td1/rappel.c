@@ -171,18 +171,56 @@ void init(int tab[])
 		int i;
 		for(i=0;i<N;i++)
 		{
-				tab[i]=1;
-				printf("[%d]",tab[i]);
+				tab[i]=i+5;
+				printf("[%d]\n",tab[i]);
 		}
 }
 void decaler(int tab[])
 {
 		int i;
-		for(i=1;i<N-1;i++)
+		int a[N];
+		printf("\n");
+		for(i=0;i<N-1;i++)
+		{	
+				a[i+1]=tab[i];
+		}
+		a[0]=0;
+		tab=a;
+		for(i=0;i<N;i++)
 		{
+				printf("[%d]",tab[i]);
+		}
+}
+void min (int tab[]) 
+{
+		int s,i;
+		s=tab[0];
+		for(i=0;i<N;i++)
+		{
+				if(s>tab[i])
+				{
+						s=tab[i];
+				}
+		}
+		printf("\nmin:%d\n",s);	
+}
+void ins (int tab[],int s)
+{		int i;int a[N];
+		for(i=0;i<N;i++){
+		a[i]=tab[i];}
+		for(i=0;i<N;i++)
+		{
+				if(s>tab[i])
+				{
+					a[i]=s;
+					a[i+1]=tab[i];
+					break;
+					
+				}
 				
 		}
-} 
+	for(i=0;i<N;i++){	printf("[%d]",a[i]);}
+}
 int main()
 {	//etoiles();
 	//conversion(5);
@@ -194,7 +232,12 @@ int main()
 	//factorielle(5);
 	//ascii();
 	int T[N];
+	int tab[3]={2,1,3};
 	//printf("%d",N);
 	init(T);
+	//decaler(T);
+	//min(T);
+	ins(T,7);
+	
 }	
 
