@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
+#define N 15
 void etoiles(int n)
 {
 	int i,j;
@@ -164,7 +165,24 @@ double cal_suit(double n)
 			i++;
 		}
 		return n ;	
-	} 
+	}
+void init(int tab[])
+{		
+		int i;
+		for(i=0;i<N;i++)
+		{
+				tab[i]=1;
+				printf("[%d]",tab[i]);
+		}
+}
+void decaler(int tab[])
+{
+		int i;
+		for(i=1;i<N-1;i++)
+		{
+				
+		}
+} 
 int main()
 {	//etoiles();
 	//conversion(5);
@@ -175,5 +193,8 @@ int main()
 	//syra(7);
 	//factorielle(5);
 	//ascii();
+	int T[N];
+	//printf("%d",N);
+	init(T);
 }	
 
