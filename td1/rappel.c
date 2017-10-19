@@ -1,7 +1,14 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
+#include <time.h>
 #define N 15
+struct TABLEAU
+	{
+		int taille;
+		int tab[100];
+	};
+typedef struct TABLEAU TABLEAU;
 void etoiles(int n)
 {
 	int i,j;
@@ -221,8 +228,61 @@ void ins (int tab[],int s)
 		}
 	for(i=0;i<N;i++){	printf("[%d]",a[i]);}
 }
+void pointeur ()
+{
+		int a;
+		char tab[10];
+		char(*p)[10]=&tab;
+		a=sizeof(p);
+		printf("%d\n",a);
+}
+void permuter(int *a,int *b)
+{
+		printf("%d %d\n",*a,*b);
+		int c;
+		c=*b;
+		*b=*a;
+		*a=c;
+		printf("%d %d\n",*a,*b);
+		
+}
+void reinitPointeur(int **p)
+{
+		*p=NULL;
+}
+
+int alea(int n)
+{
+	int s;
+	s=rand()%n;
+	return s;
+	
+}
+TABLEAU init_tab()
+{
+		int i;
+		TABLEAU var;
+		var.taille=10;
+		for(i=0;i<10;i++)
+		{
+		var.tab[i]=	alea(20);
+		printf("[%d]\n",var.tab[i]);
+		
+		}
+		return var;
+}
+void produit(TABLEAU var)
+{
+	for(i=0;i<10;i++)
+		{
+		var.tab[i]=	alea(20);
+		printf("[%d]\n",var.tab[i]);
+		
+		}
+}
 int main()
-{	//etoiles();
+{	srand(time(NULL));
+	//etoiles();
 	//conversion(5);
 	//multiEgypt(23,87);
 	//limite(1);
@@ -231,13 +291,23 @@ int main()
 	//syra(7);
 	//factorielle(5);
 	//ascii();
-	int T[N];
-	int tab[3]={2,1,3};
+	//int T[N];
+	//int tab[3]={2,1,3};
 	//printf("%d",N);
-	init(T);
+	//init(T);
 	//decaler(T);
 	//min(T);
-	ins(T,7);
-	
+	//ins(T,7);
+	//pointeur();
+	//int a=5;
+	//int b=3;
+	//permuter(&a,&b);
+	//int *p=&b;
+	//reinitPointeur(&p);
+	//printf("%p",p);
+	//init_tab();
+	//alea(20);
+	TABLEAU var;
+	init_tab(var);
 }	
 
