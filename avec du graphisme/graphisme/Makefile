@@ -1,3 +1,5 @@
+all: a.out
+
 run: a.out
 	./a.out
 
@@ -11,15 +13,18 @@ graphics.o: graphics.c graphics.h
 	gcc -Wall `sdl-config --cflags`  -c graphics.c
 	
 	
-liste.o:liste.c liste.h
+liste.o: liste.c
 	cc -Wall `sdl-config --cflags`  -c liste.c
-simul.o:simul.c simul.h
+simul.o: simul.c liste.h
 	gcc -Wall `sdl-config --cflags`  -c simul.c
 	
-main.o:main.c graphics.h liste.o simul.o
+main.o: main.c graphics.h 
 	gcc -Wall `sdl-config --cflags`  -c main.c
 	
-a.out: main.o
+a.out: main.o simul.o liste.o graphics.o
 	gcc *.o -Wall -o a.out `sdl-config --libs` -lSDL_ttf -lm 
+
+clean:
+	rm a.out *.o
 	
 

@@ -1,5 +1,4 @@
 #include "graphics.h"
-#include "liste.h"
 #include "simul.h"
 
 // ############################
