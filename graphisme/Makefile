@@ -14,7 +14,7 @@ graphics.o: graphics.c graphics.h
 	
 	
 liste.o: liste.c
-	cc -Wall `sdl-config --cflags`  -c liste.c
+	gcc -Wall `sdl-config --cflags`  -c liste.c
 simul.o: simul.c liste.h
 	gcc -Wall `sdl-config --cflags`  -c simul.c
 	
